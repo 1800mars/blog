@@ -1,17 +1,16 @@
 ---
 layout: default
 ---
-<h1>posts</h1>
-<p class="summary">microblog by amarah boulanger. radio playlists, drone flights, photos, and whatever else.</p>
-
-<ul class="post-list">
-  {% for post in site.posts %}
-  <li>
-    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
-    <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-    {% if post.summary %}
-    <p class="summary">{{ post.summary }}</p>
-    {% endif %}
-  </li>
-  {% endfor %}
-</ul>
+{% for post in site.posts %}
+<article class="post-card">
+  <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+  <h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+  {% if post.tags.size > 0 %}
+  <div class="tags">{% for tag in post.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</div>
+  {% endif %}
+  <div class="post-preview">
+    {{ post.content | strip_html | truncatewords: 500 }}
+  </div>
+  <a href="{{ post.url | prepend: site.baseurl }}" class="read-more">read more &rarr;</a>
+</article>
+{% endfor %}

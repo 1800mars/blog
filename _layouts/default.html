@@ -5,24 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | prepend: site.baseurl }}">
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to main content</a>
   <header>
-    <nav>
-      <a href="{{ site.baseurl }}/" class="site-title">{{ site.title }}</a>
-      <span class="nav-links">
-        <a href="{{ site.baseurl }}/">posts</a>
-        <a href="{{ site.url }}/">main site</a>
-        <a href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}">rss</a>
-      </span>
-    </nav>
+    <div class="navbar-wrapper">
+      <nav class="navbar container" aria-label="Main navigation">
+        <div class="nav-left">
+          <a href="{{ site.url }}/">AMARAH BOULANGER</a>
+        </div>
+        <div class="nav-right">
+          <a href="{{ site.url }}/experience.html">EXPERIENCE</a>
+          <a href="{{ site.url }}/about.html">ABOUT</a>
+          <a href="{{ site.url }}/contact.html">CONTACT</a>
+          <a href="{{ site.baseurl }}/" class="active">BLOG</a>
+        </div>
+      </nav>
+    </div>
   </header>
-  <main>
-    {{ content }}
+
+  <main id="main">
+    <section class="hero">
+      <div class="container fade-up">
+        <h1>mars blog</h1>
+        <div class="divider"><span></span></div>
+        <p>welcome to my little microblog</p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        {{ content }}
+      </div>
+    </section>
   </main>
-  <footer>
-    <p>&copy; {{ site.time | date: '%Y' }} amarah boulanger | <a href="{{ site.url }}/">1800mars.github.io</a></p>
+
+  <footer class="blog-footer">
+    <p>&copy; {{ site.time | date: '%Y' }} amarah boulanger | <a href="{{ site.url }}/">1800mars.github.io</a> | <a href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}">rss</a></p>
   </footer>
 </body>
 </html>
