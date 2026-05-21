@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<h1>posts</h1>
+<p class="summary">microblog by amarah boulanger. radio playlists, drone flights, photos, and whatever else.</p>
+
+<ul class="post-list">
+  {% for post in site.posts %}
+  <li>
+    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+    <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    {% if post.summary %}
+    <p class="summary">{{ post.summary }}</p>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>

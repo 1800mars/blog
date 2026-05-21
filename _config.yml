@@ -1,0 +1,13 @@
+title: mars blog
+description: microblog by amarah boulanger
+baseurl: "/blog"
+url: "https://1800mars.github.io"
+permalink: /:year/:month/:day/:title/
+markdown: kramdown
+plugins:
+  - jekyll-feed
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
