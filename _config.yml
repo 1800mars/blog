@@ -4,6 +4,7 @@ baseurl: "/blog"
 url: "https://1800mars.github.io"
 permalink: /:year/:month/:day/:title/
 markdown: kramdown
+theme: null
 plugins:
   - jekyll-feed
 
